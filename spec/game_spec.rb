@@ -24,27 +24,46 @@ context 'before starting the game' do
 		expect(game).to have_players
 	end 
 
+	it 'knows whose round it is'
+
 	it 'waits for the player\'s choice' do
 		game.add_player(player)
 		expect(game).to have_players
-		allow(player).to receive(:choose).with(choice).and_return(choice)
-		expect(game.player_choice(player, choice)).to eq(choice)
+		allow(player).to receive(:choice).and_return(choice)
+		expect(game.player_choice(player)).to eq(choice)
 	end
 
 	it 'after the player has chosen, chooses randomly between rock, paper, scissors' do
 		game.add_player(player)
 		expect(game).to have_players
-		allow(player).to receive(:choose).with(choice).and_return(choice)
-		expect(game.player_choice(player, choice)).to eq(choice)
-		expect(game.choose).to eq('rock'|| 'paper'|| 'scissors')
+		allow(player).to receive(:choice).and_return(choice)
+		game.choose(player)
+		expect(game.choice).not_to be nil
 	end
 
 end
 
-#context of matching choices
-#rounds
-#winner
-#reset(cucumber)
+#context
+
+it 'returns DRAW' do 
+end
+
+it 'returns WIN' do
+end
+
+it 'returns LOSS' do
+
+end
+
+
+
+
+it 'declares a winner of the turn'
+
+
+it 'declares the absolute winner'
+
+
 
 
 

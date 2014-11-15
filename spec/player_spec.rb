@@ -23,15 +23,13 @@ it 'can choose scissors' do
 	expect(player.choices.include?('scissors')).to be true
 end
 
-it 'has a choice' do 
-	expect(player.choices).not_to be nil
-	expect(player.choose('paper')).to eq(['paper'])
-end
-
 it 'must have a choice to start playing' do
 	expect(player.choices).not_to be nil
-	expect(player.choose(:option)).not_to be nil
+	player.choose('paper')
+	expect(player.choice).to eq(['paper'])
 end
+
+
 
 
 

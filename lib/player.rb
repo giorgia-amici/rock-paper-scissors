@@ -1,7 +1,7 @@
 class Player
 
-	attr_reader :name
-	attr_accessor :choices
+	attr_reader :name, :choices
+	attr_accessor :choice
 
 	def initialize(name)
 		@name = name
@@ -9,7 +9,7 @@ class Player
 	end
 
 	def choose(option)
-		@choices.select{ |element| element == option }
+		@choice = @choices.select{ |element| element == option }
 	end
 
 
