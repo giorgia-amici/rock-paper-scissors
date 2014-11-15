@@ -17,8 +17,6 @@ def game_rules
 end
 
 
-
-
 end
 
 
