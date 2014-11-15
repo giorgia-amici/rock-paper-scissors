@@ -7,11 +7,14 @@ Provide a Rock, Paper, Scissors game to be played on the web with the following 
 - the marketeer will be presented the choices _(rock, paper and scissors)_;
 - the marketeer can choose **one** option;
 - the game will choose a **random** option;
-- a winner will be declare;
+- a winner will be declared;
+
 ==============================================================
+
+
 ##EXTRA Tasks
 - MULTIPLAYER: Change the game so that two marketeers can play against each other;
-- ROCK-PAPER-SCISSORS-SPOCK-LIZARD: the special rules are referred in (http://en.wikipedia.org/wiki/Rock-paper-scissors-lizard-Spock).
+- [ROCK-PAPER-SCISSORS-SPOCK-LIZARD](http://en.wikipedia.org/wiki/Rock-paper-scissors-lizard-Spock).
 
 ###SKILLS
 - Ruby
