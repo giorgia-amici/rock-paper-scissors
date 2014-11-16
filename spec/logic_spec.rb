@@ -32,14 +32,17 @@ end
 			expect(logic.result(game, player1)).to eq('DRAW')
 		end
 
-
 		it 'returns LOSS' do
-			allow(game).to receive(:add_player).with(player1).and_return true
+			allow(game).to receive(:add_player).with(player3).and_return true
 			logic.result(game, player1)
+			expect(logic.result(game, player3)).to eq('rock wins')
 		end
 
-		# it 'returns WIN' do
-		# end
+		it 'returns WIN' do
+			allow(game).to receive(:add_player).with(player3).and_return true
+			logic.result(game, player1)
+			expect(logic.result(game, player2)).to eq('paper wins')
+		end
 
 
 
