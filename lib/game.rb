@@ -1,5 +1,5 @@
 class Game
-	attr_accessor :players, :choice
+	attr_accessor :players, :choice, :score
 	attr_reader :choices
 
 	def initialize
@@ -8,6 +8,7 @@ class Game
 	end
 
 	def add_player(player)
+		#raise ("There are already two players.") if @player.size == 2
 		@players << player
 	end
 
@@ -23,6 +24,7 @@ class Game
 	def choose
 		@choice = @choices.sample if @players.size == 1
 	end
+
 
 
 
