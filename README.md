@@ -1,12 +1,10 @@
 #**Rock-Paper-Scissors**
-
+<div>
 <img src = http://img.shields.io/badge/cucumber-perfectioning-brightgreen.svg >
-
 <img src = http://img.shields.io/badge/capybara-general-orange.svg>
-
 <img src = http://img.shields.io/badge/ruby-master-red.svg >
-
 <img src = http://img.shields.io/badge/sinatra-POST%2FGET-yellow.svg>
+</div>
 
 ##Basic Tasks
 Provide a Rock, Paper, Scissors game to be played on the web with the following features:
