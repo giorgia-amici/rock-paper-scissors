@@ -1,5 +1,7 @@
 #**Rock-Paper-Scissors**
 
+[http://img.shields.io/badge/cucumber-perfectioning-brightgreen.svg]
+
 ##Basic Tasks
 Provide a Rock, Paper, Scissors game to be played on the web with the following features:
 
