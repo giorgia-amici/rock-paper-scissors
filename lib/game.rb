@@ -24,7 +24,8 @@ class Game
 	end
 
 
-	
+	#the choose method applies only if there is only one player
+
 
 
 

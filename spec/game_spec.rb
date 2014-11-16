@@ -7,7 +7,20 @@ let(:second_player)                { double :player }
 let(:choice)                       { double :choice }
 
 
-context 'before starting the game' do
+def let_player_choose
+		expect(game).to have_players
+		allow(player).to receive(:choice).and_return(choice)
+		expect(game.player_choice(player)).to eq(choice)
+end
+
+def let_game_choose
+		expect(game).to have_players
+		allow(player).to receive(:choice).and_return(choice)
+		game.choose
+		expect(game.choice).not_to be nil
+end
+
+context 'the game set up' do
 
 	it 'does not have players when created' do
 		expect(game.players).to eq([])
@@ -26,49 +39,17 @@ context 'before starting the game' do
 
 	it 'knows whose round it is'
 
-	it 'waits for the player\'s choice' do
+	it 'let the player\'s choose' do
 		game.add_player(player)
-		expect(game).to have_players
-		allow(player).to receive(:choice).and_return(choice)
-		expect(game.player_choice(player)).to eq(choice)
+		let_player_choose
 	end
 
 	it 'after the player has chosen, chooses randomly between rock, paper, scissors' do
 		game.add_player(player)
-		expect(game).to have_players
-		allow(player).to receive(:choice).and_return(choice)
-		game.choose(player)
-		expect(game.choice).not_to be nil
+		let_game_choose
 	end
 
 end
-
-#context
-
-it 'returns DRAW' do 
-end
-
-it 'returns WIN' do
-end
-
-it 'returns LOSS' do
-
-end
-
-
-
-
-it 'declares a winner of the turn'
-
-
-it 'declares the absolute winner'
-
-
-
-
-
-
-
 
 
 end
