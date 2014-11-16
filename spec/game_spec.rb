@@ -2,15 +2,14 @@ require 'game'
 
 describe Game do 
 let(:game)                         {    Game.new    }
-let(:player)                       { double :player }
+let(:player)                       { double :player, :choice => 'paper' }
 let(:second_player)                { double :player }
 let(:choice)                       { double :choice }
 
 
 def let_player_choose
 		expect(game).to have_players
-		allow(player).to receive(:choice).and_return(choice)
-		expect(game.player_choice(player)).to eq(choice)
+		expect(game.player_choice).to eq([player])
 end
 
 def let_game_choose
@@ -50,6 +49,10 @@ context 'the game set up' do
 	end
 
 end
+
+
+
+
 
 
 end
