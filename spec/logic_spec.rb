@@ -44,13 +44,6 @@ end
 			expect(logic.result(game, player2)).to eq('paper wins')
 		end
 
-
-
-		# it 'declares a winner of the turn'
-
-
-		# it 'declares the absolute winner'
-
 	end
 
 end

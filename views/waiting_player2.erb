@@ -1,0 +1,11 @@
+<html>
+	<head> </head>
+		<title> Second Player </title>
+			<body>
+			<h3> This is your choice: <%= @player1.choice %> </h3>
+				<h1> Please wait for the second player </h1> 
+					<% GAME.choose %>
+				<h3> The Second player has chosen:  <%= GAME.choice %> </h3>
+				<%= LOGIC.result(GAME, @player1) %>
+			</body>
+</html>

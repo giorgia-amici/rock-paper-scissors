@@ -10,6 +10,7 @@ class Player
 
 	def choose(option)
 		@choice = @choices.select{ |element| element == option }
+		@choice = @choice[0]
 	end
 
 

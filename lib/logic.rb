@@ -16,19 +16,16 @@ def game_rules
 	@combos.each{ |combo| @rules[combo] = "#{combo[0]} wins" && @rules[combo.rotate] = "#{combo[0]} wins"}
 end
 
-def result(game, player)
+def result(player1, player2)
 	temp = []
-	unless game.choice == player.choice
-		temp.push(game.choice, player.choice)
+	unless player1.choice == player2.choice
+		temp.push(player1.choice, player2.choice)
 		@rules[temp]
 	else
 		return 'DRAW'
 	end
 end
 
-# def add_score(game, player)
-
-# end
 
 
 
