@@ -18,10 +18,6 @@ class Game
 	def has_players?
 		!players.empty?
 	end
-
-	# def rounds?(rounds = 3)
-	# 	@rounds = rounds
-	# end
 	
 	def player_choice
 		@players.each(&:choice)
@@ -31,16 +27,19 @@ class Game
 		@choice = @choices.sample
 	end
 
-	def update_round(logic, player1, player2)
-		logic.result(player1, player2) 
-		@rounds -= 1 if @rounds > 0
-		#call the update score here
-		#use this one insetead of the one from the logic class once finished
-	end
-
 	def finish?
 		return true if @rounds == 0
 		false
+	end
+
+	def play(logic, player1, player2)
+		@temp = logic.result(player1, player2)
+		@temp[0] == player1.choice[0] ? player1.score += 1 : player2.score += 1
+	end
+
+	def update_round(logic, player1, player2)
+		play(logic, player1, player2)
+		@rounds -= 1 if @rounds > 0
 	end
 
 	# def winner

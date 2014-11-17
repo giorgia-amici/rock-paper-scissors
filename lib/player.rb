@@ -6,6 +6,7 @@ class Player
 	def initialize(name)
 		@name = name
 		@choices = ['rock', 'paper', 'scissors']
+		@score = 0
 	end
 
 	def choose(option)

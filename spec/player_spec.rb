@@ -9,7 +9,7 @@ it 'has a name' do
 end
 
 it 'has an initial score of 0' do
-	expect(player.score).to be nil
+	expect(player.score).to eq(0)
 end
 
 it 'can choose rock' do
@@ -32,13 +32,6 @@ it 'must have a choice to start playing' do
 	player.choose('paper')
 	expect(player.choice).to eq('paper')
 end
-
-
-
-
-
-
-
 
 
 end
