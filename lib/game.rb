@@ -2,10 +2,12 @@ class Game
 	attr_accessor :players, :choice, :score, :rounds
 	attr_reader :choices
 
-	def initialize
+	MIN_ROUNDS = 3
+
+	def initialize(rounds = MIN_ROUNDS)
 		@players = []
 		@choices = ['rock', 'paper', 'scissors']
-		rounds?
+		@rounds = rounds
 	end
 
 	def add_player(player)
@@ -17,9 +19,9 @@ class Game
 		!players.empty?
 	end
 
-	def rounds?(rounds = 3)
-		@rounds = rounds
-	end
+	# def rounds?(rounds = 3)
+	# 	@rounds = rounds
+	# end
 	
 	def player_choice
 		@players.each(&:choice)
@@ -33,15 +35,8 @@ class Game
 		logic.result(player1, player2) 
 		@rounds -= 1 if @rounds > 0
 		#call the update score here
+		#use this one insetead of the one from the logic class once finished
 	end
-
-	# def update_score(player1, player2)
-		#@temp = logic.result(player1, player2)
-		#if @temp[0] == player1.choice[0]
-		# return "The winner of this round is #{player1.name}"
-		#elsif @temp[0] == player2.choice[0]
-		#return "The winner of this round is #{player1.name}"
-	# end
 
 	def finish?
 		return true if @rounds == 0

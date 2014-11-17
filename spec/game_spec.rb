@@ -1,11 +1,12 @@
 require 'game'
 
 describe Game do 
-let(:game)                         {    Game.new    }
+let(:game)                         { Game.new                           }
+let(:game_5_rounds)                { Game.new(5)                        }
 let(:player)                       { double :player, :choice => 'paper' }
-let(:second_player)                { double :player, :choice => 'rock' }
-let(:choice)                       { double :choice }
-let(:logic)                        { double :logic  }
+let(:second_player)                { double :player, :choice => 'rock'  }
+let(:choice)                       { double :choice                     }
+let(:logic)                        { double :logic                      }
                       
 
 def let_player_choose
@@ -27,8 +28,7 @@ context 'the game set up' do
 	end
 
 	it 'can have more than 3 rounds' do
-		game.rounds?(5)
-		expect(game.rounds).to eq(5)
+		expect(game_5_rounds.rounds).to eq(5)
 	end
 
 	it 'does not have players when created' do
