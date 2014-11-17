@@ -20,6 +20,7 @@ enable :sessions
   post '/sign_in' do
   	@player1 = Player.new(params[:player1])
   	@name = @player1.name
+    puts @player1.score
   	session[:player1] = @player1
   	puts params.inspect
   	puts session.inspect
@@ -30,6 +31,8 @@ enable :sessions
 
   post '/player1_choice' do
   	@player1 = Player.new(params[:player1])
+    puts @player1.score
+    @name = @player1.name
     session[:player1] = @player1.choose(params[:option])
     puts params.inspect 
     puts GAME

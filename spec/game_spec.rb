@@ -46,8 +46,6 @@ context 'the game set up' do
 		expect(game).to have_players
 	end 
 
-
-
 	it 'let the player\'s choose' do
 		game.add_player(player)
 		let_player_choose
@@ -62,22 +60,29 @@ end
 
 context 'after the two players have made their choices' do
 
-	it 'upgrade the count of rounds after each manche' do
-		expect(game.rounds).to eq(3)
-		allow(logic).to receive(:result).with(player, second_player).and_return('rock wins')
-		game.update_round(logic, player, second_player)
-		expect{game.update_round(logic, player, second_player)}.to change{game.rounds}.by -1
-	end
+	# it 'knows who wins the round' do
+	# 	allow(second_player).to receive(:score).and_return(0)
+	# 	allow(player).to receive(:score).and_return(1)
+	# 	expect(logic).to receive(:result).with(player, second_player).and_return("rock wins")
+	# 	expect(game.play(logic, player, second_player)).to eq(1)
+	# end
 
 	it 'knows when the players cannot play anymore' do
 		expect(game.rounds).to eq(3)
 		expect(game.finish?).to be false
 	end
 
+	it 'upgrades the score' do
 
+	end
 
-	it 'upgrades the score'
-
+	it 'declares a winner' do
+	# 	expect(game.rounds).to eq(3)
+	# 	allow(second_player).to receive(:score).and_return(0)
+	# 	expect(second_player).to receive(:name).and_return('bubu')
+	# 	game.add_player(second_player)
+	# 	expect(game.winner).to eq('bubu')
+	end
 
 
 end

@@ -1,5 +1,5 @@
 class Game
-	attr_accessor :players, :choice, :score, :rounds
+	attr_accessor :players, :choice, :score, :rounds, :score
 	attr_reader :choices
 
 	MIN_ROUNDS = 3
@@ -8,11 +8,11 @@ class Game
 		@players = []
 		@choices = ['rock', 'paper', 'scissors']
 		@rounds = rounds
+		@score = 0
 	end
 
 	def add_player(player)
-		#raise ("There are already two players.") if @player.size == 2
-		@players << player
+		@players.size < 2 ? @players << player : 'full'
 	end
 
 	def has_players?
@@ -32,27 +32,19 @@ class Game
 		false
 	end
 
-	def play(logic, player1, player2)
-		@temp = logic.result(player1, player2)
-		@temp[0] == player1.choice[0] ? player1.score += 1 : player2.score += 1
+	def play(rules, player1, player2)
+			@temp = rules.result(player1, player2)
+			unless @temp == 'DRAW'
+				@temp[0] == player1.choice[0] ? player1.score += 1 : player2.score += 1
+		end
 	end
 
-	def update_round(logic, player1, player2)
-		play(logic, player1, player2)
+	def update_round(rules, player1, player2)
+		play(rules, player1, player2)
 		@rounds -= 1 if @rounds > 0
 	end
 
-	# def winner
-	# @players.select{|player| player.score == 3 }	
-
-	# end
-
-	
-
-
-
-
-
-
-
+	def winner
+		@players.select{|player| player.score == 3 }[0].name if finish?
+	end
 end
