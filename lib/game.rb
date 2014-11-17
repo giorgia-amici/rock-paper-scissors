@@ -25,7 +25,6 @@ class Game
 		@players.each(&:choice)
 	end
 
-	#this method allows the game to play in case there is no second player
 	def choose
 		@choice = @choices.sample
 	end
@@ -33,19 +32,24 @@ class Game
 	def update_round(logic, player1, player2)
 		logic.result(player1, player2) 
 		@rounds -= 1 if @rounds > 0
+		#call the update score here
 	end
 
 	# def update_score(player1, player2)
-
+		#@temp = logic.result(player1, player2)
+		#if @temp[0] == player1.choice[0]
+		# return "The winner of this round is #{player1.name}"
+		#elsif @temp[0] == player2.choice[0]
+		#return "The winner of this round is #{player1.name}"
 	# end
 
-	def finsh?
+	def finish?
 		return true if @rounds == 0
 		false
 	end
 
 	# def winner
-	
+	# @players.select{|player| player.score == 3 }	
 
 	# end
 

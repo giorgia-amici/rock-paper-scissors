@@ -46,9 +46,7 @@ context 'the game set up' do
 		expect(game).to have_players
 	end 
 
-	it 'upgrades the count of rounds'
 
-	it 'upgrades the score'
 
 	it 'let the player\'s choose' do
 		game.add_player(player)
@@ -72,11 +70,13 @@ context 'after the two players have made their choices' do
 	end
 
 	it 'knows when the players cannot play anymore' do
-
+		expect(game.rounds).to eq(3)
+		expect(game.finish?).to be false
 	end
 
 
 
+	it 'upgrades the score'
 
 
 
