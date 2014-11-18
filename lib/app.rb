@@ -25,25 +25,14 @@ enable :sessions
   end
 
   post '/player1_choice' do
-    puts 'im in the /player1_choice route'
-    puts session.inspect
     session[:game].players[0].choice = params[:option]
-    erb :results
+    @choice = params[:option]
+    GAME.choose
+    GAME.play(LOGIC, GAME, session[:game].players[0])
+    GAME.update_round(LOGIC, GAME, session[:game].players[0])
+    erb :start_game
   end
 
-  # get '/player2_choice' do
-
-  # 	erb :winner
-  # end
- 
-
-
- # why my score sets to 2
- #stop game when rounds == 0
- #after stopping the game should declare winner + winner score at the moment of the winning
-
-
-  
 
 
 

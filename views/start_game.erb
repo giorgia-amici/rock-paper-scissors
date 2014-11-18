@@ -1,16 +1,34 @@
 <html>
 	<head><link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></head>
-		<title> RPS </title>
+		<title> FUN </title>
 			<body>
 				<h1> WELCOME to Rock-Paper-Scissors, <%= session[:game].players[0].name %> </h1>
-				<form action = "/player1_choice" method = "post">
-				Choose between: 
-				<input class = "btn btn-danger btn-lg" type = "submit" name = "option" value="rock">
-				<input class = "btn btn-danger btn-lg" type = "submit" name = "option" value="paper">
-				<input class = "btn btn-danger btn-lg" type = "submit" name = "option" value="scissors">
-				</form>
-
-
+						<form action = "/player1_choice" method = "post">
+						Choose between: 
+						<input class = "btn btn-primary btn-lg" type = "submit" name = "option" value="rock">
+						<input class = "btn btn-primary btn-lg" type = "submit" name = "option" value="paper">
+						<input class = "btn btn-primary btn-lg" type = "submit" name = "option" value="scissors">
+						</form>
+				<h3> This is your choice: <%= session[:game].players[0].choice %> </h3>
+				<h3> This is the Game choice <%= GAME.choice %> </h3>
+						<% if GAME.choice == session[:game].players[0].choice %>
+							<%= "DRAW" %>
+						<% else %>
+				<p class="text-info"> <%= "your score is #{session[:game].players[0].score}" %> </p>
+				<p class="text-warning"> <%= "the opponent score is #{GAME.score}" %> </p>
+						<% end %> 
+					<%= "Rounds left #{GAME.rounds}"  %>
+						<% if GAME.finish? %>
+						<%= "game over" %>
+							<div class="panel panel-success">
+			  			<div class="panel-heading">
+			   			 <h3 class="panel-title">  WINNER </h3>
+			  			</div>
+			  			<div class="panel-body">
+			   			<%= GAME.score > session[:game].players[0].score ? 'GAME WINS' : session[:game].players[0].name %> 
+			  			</div>
+							</div>
+						<% end %>
 
 	</body>
 
