@@ -17,28 +17,18 @@ enable :sessions
     erb :index
   end
 
-  post '/sign_in' do
-  	@player1 = Player.new(params[:player1])
-  	@name = @player1.name
-    puts @player1.score
-  	session[:player1] = @player1
-  	puts params.inspect
-  	puts session.inspect
-  	GAME.add_player(@player1)
-  	puts GAME.players
-  	erb :start_game
+  post '/play' do
+    @player1 = Player.new(params[:player1])
+    GAME.add_player(@player1)
+    session[:game] = GAME
+    erb :start_game
   end
 
   post '/player1_choice' do
-  	@player1 = Player.new(params[:player1])
-    puts @player1.score
-    @name = @player1.name
-    session[:player1] = @player1.choose(params[:option])
-    puts params.inspect 
-    puts GAME
-    puts GAME.players
-    puts LOGIC.rules
-   	erb :waiting_player2
+    puts 'im in the /player1_choice route'
+    puts session.inspect
+    session[:game].players[0].choice = params[:option]
+    erb :results
   end
 
   # get '/player2_choice' do
@@ -46,6 +36,12 @@ enable :sessions
   # 	erb :winner
   # end
  
+
+
+ # why my score sets to 2
+ #stop game when rounds == 0
+ #after stopping the game should declare winner + winner score at the moment of the winning
+
 
   
 

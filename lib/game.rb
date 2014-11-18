@@ -34,13 +34,15 @@ class Game
 
 	def play(rules, player1, player2)
 			@temp = rules.result(player1, player2)
-			unless @temp == 'DRAW'
-				@temp[0] == player1.choice[0] ? player1.score += 1 : player2.score += 1
+			if @temp != 'DRAW'
+			@temp[0] == player1.choice[0] ? player1.score += 1 : player2.score += 1
+			else
+				return player1.score, player2.score
 		end
 	end
 
 	def update_round(rules, player1, player2)
-		play(rules, player1, player2)
+		#play(rules, player1, player2)
 		@rounds -= 1 if @rounds > 0
 	end
 

@@ -1,0 +1,32 @@
+<html>
+	<head><link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"> </head>
+		<title> Second Player </title>
+			<body>
+			<%= " You have #{GAME.rounds} rounds"  %>
+			<h3> This is your choice: <%= session[:game].players[0].choice %> </h3>
+					<% GAME.choose %>
+				<h3> The Second player has chosen:  <%= GAME.choice %> </h3>
+				<% GAME.play(LOGIC, GAME, session[:game].players[0]) %>
+				<% GAME.update_round(LOGIC, GAME, session[:game].players[0]) %>
+				<% if GAME.choice == session[:game].players[0].choice %>
+				<%= "DRAW" %>
+				<% else %>
+				<p> <%= "your score is #{session[:game].players[0].score}" %></p>
+				<p> <%= "the opponent score is #{GAME.score}" %> </p>
+				<% end %> 
+				<%= "Rounds left #{GAME.rounds}"  %>
+
+
+				<% if GAME.finish? %>
+				<%= "game over" %>
+				<% end %>
+					<div class="panel panel-success">
+	  			<div class="panel-heading">
+	   			 <h3 class="panel-title"> 
+	   			<%= GAME.score > session[:game].players[0].score ? 'GAME WINS' : 'PLAYER WINS'            %></h3>
+	  			</div>
+	  			<div class="panel-body">
+	  			</div>
+					</div>
+			</body>
+</html>

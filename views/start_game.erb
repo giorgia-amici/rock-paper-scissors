@@ -1,26 +1,14 @@
 <html>
-	<head></head>
+	<head><link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></head>
 		<title> RPS </title>
 			<body>
-				<h1> WELCOME to Rock-Paper-Scissors, <%= @name %> </h1>
+				<h1> WELCOME to Rock-Paper-Scissors, <%= session[:game].players[0].name %> </h1>
 				<form action = "/player1_choice" method = "post">
-				Choose between:  <input type = "submit" name = "option" value="rock">
-				<input type = "submit" name = "option" value="paper">
-				<input type = "submit" name = "option" value="scissors">
+				Choose between: 
+				<input class = "btn btn-danger btn-lg" type = "submit" name = "option" value="rock">
+				<input class = "btn btn-danger btn-lg" type = "submit" name = "option" value="paper">
+				<input class = "btn btn-danger btn-lg" type = "submit" name = "option" value="scissors">
 				</form>
-
-
-
-<!-- 
-result(game, player) -->
-
-
-
-
-
-
-
-
 
 
 

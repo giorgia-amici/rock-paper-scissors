@@ -2,12 +2,17 @@
 	<head> </head>
 		<title> Second Player </title>
 			<body>
+			<%= "Rounds #{GAME.rounds}"  %>
 			<h3> This is your choice: <%= @player1.choice %> </h3>
-				<h1> Please wait for the second player </h1> 
 					<% GAME.choose %>
 				<h3> The Second player has chosen:  <%= GAME.choice %> </h3>
 				<% GAME.play(LOGIC, GAME, @player1) %>
-				<p> <%= "The game has scored #{GAME.score}" %> </p>
-				<p> <%= "While the player has scores #{@player1.score}" %></p>
+				<% GAME.update_round(LOGIC, GAME, @player1) %>
+				<p> <%= "the opponent scored #{GAME.score}" %> </p>
+				<p> <%= "you scored #{@player1.score}" %></p>
+				<%= "Rounds left #{GAME.rounds}"  %>
+				<% if GAME.finish? %>
+				<%= "game over" %>
+				<% end %>
 			</body>
 </html>
